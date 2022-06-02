@@ -34,15 +34,10 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 const drawerWidth = 240;
 const DrawerComp = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
+  const [draw, setDraw] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  console.log(open);
   return (
     <>
       <AppBar
@@ -58,6 +53,11 @@ const DrawerComp = () => {
         }}
       >
         <Toolbar>
+          <div className='menu__icons'>
+            <IconButton onClick={() => setOpen(!open)}>
+              <MenuIcon />
+            </IconButton>
+          </div>
           <div className='toolbar'>
             <div className='searchbar'>
               <SearchIcon
@@ -87,58 +87,70 @@ const DrawerComp = () => {
       <Toolbar />
       <Toolbar />
 
-      <Drawer
-        open={open}
-        style={{ width: 300 }}
-        variant='permanent'
-        className='drawer'
-      >
-        <div className='drawerContent'>
-          <div className='drawerHead'>
-            <Typography sx={{ fontSize: "2rem" }}>StockBoard</Typography>
-            <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon />
+      {open && (
+        <Drawer
+          open={open}
+          style={{ width: 300 }}
+          variant='permanent'
+          className='drawer'
+        >
+          <div className='drawerContent'>
+            <div className='drawerHead'>
+              <Typography
+                sx={{
+                  fontSize: "1.5rem",
+                  color: "#87459E",
+                  fontWeight: "900",
+                  boxShadow: "5px 5px 5px  #9e4589",
+                  border: "none",
+                }}
+              >
+                StockBoard
+              </Typography>
+              <div className='menu__icons'>
+                <IconButton onClick={() => setOpen(!open)}>
+                  <ChevronLeftIcon />
+                </IconButton>
+              </div>
+            </div>
+            <Divider />
 
-              <MenuIcon />
-            </IconButton>
-          </div>
-          <Divider />
-
-          <List>
-            {data.map((item, index) => (
-              <ListItem key={index}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
+            <List>
+              {data.map((item, index) => (
+                <ListItem key={index}>
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
                     }}
                   >
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.name}
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <div className='logout'>
-            <IconButton>
-              <LogoutIcon />
-              Logout
-            </IconButton>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={item.name}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+            <div className='logout'>
+              <IconButton>
+                <LogoutIcon />
+                Logout
+              </IconButton>
+            </div>
           </div>
-        </div>
-      </Drawer>
+        </Drawer>
+      )}
     </>
   );
 };

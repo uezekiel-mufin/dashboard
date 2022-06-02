@@ -93,9 +93,9 @@ const Main = () => {
             </h2>
 
             <Divider sx={{ marginBottom: "1rem" }} />
-            <div className='chart'>
+            {/* <div className='chart'>
               <Chart />
-            </div>
+            </div> */}
 
             <ProductAlert />
           </div>
