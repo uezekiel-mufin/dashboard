@@ -4,9 +4,7 @@
   display: grid;
   grid-template-columns: 60% 40%;
   grid-column-gap: 1rem;
-  /* background: #e5e5e5; */
   padding-bottom: 2rem;
-  /* grid-template-areas: "left right "; */
 }
 
 .chart {
@@ -14,7 +12,6 @@
 }
 
 .mainLeft {
-  /* grid-area: left; */
   background: #e5e5e5;
   display: flex;
   flex-direction: column;
@@ -67,7 +64,7 @@
 .progress__img {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .progress__img img {
   background-size: cover;
@@ -131,16 +128,16 @@ h5 {
 
 .rightTop {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   background: #87459e;
   margin-top: 4rem;
-  padding: 1.5rem 0 1.5rem 0;
+  padding: 1.5rem 1rem 1.5rem 1rem;
 }
 
 .rightBottom {
-  margin-top: 3rem;
+  margin-top: 1rem;
   background: #ffffff;
 }
 
@@ -216,11 +213,9 @@ h5 {
   }
 
   .progressReport {
-    display: grid;
-
-    background: #ffffff;
-    border-radius: 5px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
