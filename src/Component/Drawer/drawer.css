@@ -15,6 +15,7 @@
   align-items: center;
   margin-left: 220px;
   margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 
 .farRight {
@@ -66,6 +67,7 @@
 .drawer {
   display: contents;
 }
+
 @media only screen and (max-width: 800px) {
   .toolbar {
     margin-left: 5px;
@@ -76,16 +78,28 @@
   }
 
   .farRight {
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
     display: flex;
+
     align-items: center;
     justify-content: center;
+    gap: 0.3rem;
   }
 
   .toolbarRight {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+
     align-items: center;
+  }
+
+  .toolbarH2 {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    align-items: flex-start;
+    margin: 0;
+    font-size: 11px;
   }
 
   .menu__icons {

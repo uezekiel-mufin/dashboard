@@ -8,7 +8,6 @@ import BestSellingProducts from "./Bestselling/BestSellingProducts";
 import ProgressReport from "./ProgressReport/ProgressReport";
 import Summary from "./Summary/Summary";
 import { Avatar, Divider } from "@mui/material";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import Chart from "./Chart/Chart";
 import ProductAlert from "./ProductAlert/ProductAlert";
@@ -93,9 +92,9 @@ const Main = () => {
             </h2>
 
             <Divider sx={{ marginBottom: "1rem" }} />
-            {/* <div className='chart'>
+            <div className='chart'>
               <Chart />
-            </div> */}
+            </div>
 
             <ProductAlert />
           </div>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import {
   Box,
   Drawer,
@@ -31,13 +32,28 @@ import SearchIcon from "@mui/icons-material/Search";
 import "./drawer.css";
 import Ezzy from "../../assets/test3.jpg";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { useTheme, useMediaQuery } from "@mui/material";
+import { width } from "@mui/system";
 
 const drawerWidth = 240;
 const DrawerComp = () => {
-  const [open, setOpen] = useState(true);
-  const [draw, setDraw] = useState(false);
+  const [innerWidth, setInnerWidth] = useState({
+    width: undefined,
+  });
+  const [bigDraw, setBigDraw] = useState(true);
+  const [smallDraw, setSmallDraw] = useState(false);
 
-  console.log(open);
+  useEffect(() => {
+    const handleResize = () => {
+      setInnerWidth({ width: window.innerWidth });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <AppBar
@@ -54,7 +70,7 @@ const DrawerComp = () => {
       >
         <Toolbar>
           <div className='menu__icons'>
-            <IconButton onClick={() => setOpen(!open)}>
+            <IconButton onClick={() => setSmallDraw(!smallDraw)}>
               <MenuIcon />
             </IconButton>
           </div>
@@ -66,14 +82,15 @@ const DrawerComp = () => {
               <InputBase variant='filled' fullWidth placeholder='Search...' />
             </div>
             <div className='farRight'>
-              <Badge color='secondary' badgeContent={<FiberManualRecordIcon />}>
+              <Badge color='primary' badgeContent={5}>
                 <NotificationsIcon />
               </Badge>
               <Avatar src={Ezzy} alt='image' />
               <div className='toolbarRight'>
-                <Typography sx={{ marginTop: "2rem" }}>
-                  Dr Abel Edwin <ArrowDropDownIcon />
-                </Typography>
+                <h2 className='toolbarH2' sx={{ marginTop: "2rem" }}>
+                  Dr Abel Edwin
+                </h2>
+                <ArrowDropDownIcon />
                 <div className='date'>
                   <h4>
                     January 2022 <CalendarMonthIcon />
@@ -87,70 +104,74 @@ const DrawerComp = () => {
       <Toolbar />
       <Toolbar />
 
-      {open && (
-        <Drawer
-          open={open}
-          style={{ width: 300 }}
-          variant='permanent'
-          className='drawer'
-        >
-          <div className='drawerContent'>
-            <div className='drawerHead'>
-              <Typography
-                sx={{
-                  fontSize: "1.5rem",
-                  color: "#87459E",
-                  fontWeight: "900",
-                  boxShadow: "5px 5px 5px  #9e4589",
-                  border: "none",
-                }}
-              >
-                StockBoard
-              </Typography>
-              <div className='menu__icons'>
-                <IconButton onClick={() => setOpen(!open)}>
-                  <ChevronLeftIcon />
-                </IconButton>
-              </div>
-            </div>
-            <Divider />
-
-            <List>
-              {data.map((item, index) => (
-                <ListItem key={index}>
-                  <ListItemButton
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? "initial" : "center",
-                      px: 2.5,
-                    }}
-                  >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : "auto",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.name}
-                      sx={{ opacity: open ? 1 : 0 }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-            <div className='logout'>
-              <IconButton>
-                <LogoutIcon />
-                Logout
+      <Drawer
+        open={innerWidth.width > 800 ? bigDraw : smallDraw}
+        hideBackdrop
+        transitionDuration={500}
+        ModalProps={{
+          disableScrollLock: true,
+        }}
+      >
+        <div className='drawerContent'>
+          <div className='drawerHead'>
+            <Typography
+              sx={{
+                fontSize: "1.5rem",
+                color: "#87459E",
+                fontWeight: "900",
+                boxShadow: "5px 5px 5px  #9e4589",
+                border: "none",
+              }}
+            >
+              StockBoard
+            </Typography>
+            <div className='menu__icons'>
+              <IconButton onClick={() => setSmallDraw(!smallDraw)}>
+                <ChevronLeftIcon />
               </IconButton>
             </div>
           </div>
-        </Drawer>
-      )}
+          <Divider />
+
+          <List>
+            {data.map((item, index) => (
+              <ListItem key={index}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: bigDraw ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                  onClick={() => {
+                    if (innerWidth.width > 800) setBigDraw(true);
+                    if (innerWidth.width < 800) setSmallDraw(!smallDraw);
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: bigDraw ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={item.name}
+                    sx={{ opacity: bigDraw ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <div className='logout'>
+            <IconButton>
+              <LogoutIcon />
+              Logout
+            </IconButton>
+          </div>
+        </div>
+      </Drawer>
     </>
   );
 };

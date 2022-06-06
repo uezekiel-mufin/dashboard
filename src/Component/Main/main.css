@@ -143,19 +143,22 @@ h5 {
 
 @media only screen and (max-width: 800px) {
   .main {
-    margin-left: 5px;
+    margin-left: 0px;
     display: flex;
     flex-direction: column;
   }
   .overview {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .view {
     display: flex;
     width: 100%;
     margin-bottom: 1.5rem;
+    justify-content: space-around;
+    padding: 0px;
   }
   .products {
     display: flex;
@@ -217,5 +220,11 @@ h5 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .rightBottom {
+    padding-top: 1rem;
+  }
+  .rightBottom h2 {
+    margin-bottom: 2rem;
   }
 }
