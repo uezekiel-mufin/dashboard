@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { Button } from "@mui/material";
 function createData(orderID, name, Date, Status, Amount, Agent) {
   return { orderID, name, Date, Status, Amount, Agent };
 }
@@ -15,7 +15,18 @@ const rows = [
     "00716",
     "Peterson Eloagu",
     "8 Jan",
-    "success",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#3ded97",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='success'
+    >
+      success
+    </Button>,
     "#100,000.55",
     "Caleb"
   ),
@@ -23,16 +34,56 @@ const rows = [
     "00717",
     "Success Dominik",
     "8 Jan",
-    "success",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#3ded97",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='success'
+    >
+      success
+    </Button>,
     "#100,000.55",
     "Ann"
   ),
-  createData("00718", "Ahmad Yusuf", "9 Jan", "success", "#100,000.55", "Ann"),
+  createData(
+    "00718",
+    "Ahmad Yusuf",
+    "9 Jan",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#ff9999",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='error'
+    >
+      success
+    </Button>,
+    "#100,000.55",
+    "Ann"
+  ),
   createData(
     "00719",
     "Bennard Eze",
     "9 Jan",
-    "success",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#3ded97",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='success'
+    >
+      success
+    </Button>,
     "#100,000.55",
     "Caleb"
   ),
@@ -40,7 +91,18 @@ const rows = [
     "00720",
     "Kemi Adeola",
     "9 Jan",
-    "success",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#3ded97",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='success'
+    >
+      success
+    </Button>,
     "#100,000.55",
     "Caleb"
   ),
@@ -48,7 +110,18 @@ const rows = [
     "00721",
     "Ezekiel Jobin",
     "10 Jan",
-    "success",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#3ded97",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='success'
+    >
+      success
+    </Button>,
     "#100,000.55",
     "Caleb"
   ),
@@ -56,7 +129,18 @@ const rows = [
     "00722",
     "Ekele Samson",
     "10 Jan",
-    "success",
+    <Button
+      variant='text'
+      style={{
+        backgroundColor: "#3ded97",
+        fontSize: "12px",
+        borderRadius: "2rem",
+        padding: "0rem 1rem",
+      }}
+      color='success'
+    >
+      success
+    </Button>,
     "#100,000.55",
     "Ann"
   ),

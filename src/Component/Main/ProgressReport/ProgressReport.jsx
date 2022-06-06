@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "@mui/material/Slider";
 import "./progress.css";
 import { Button } from "@mui/material";
 const ProgressReport = () => {
+  const [progress, setProgress] = useState("");
+
+  const [value, setValue] = React.useState(30);
+
+  const handleSliderChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div className='progressDiv'>
       <div className='progress'>
@@ -24,11 +31,15 @@ const ProgressReport = () => {
             color: "#000000",
           }}
         >
-          60%
+          {value}%
         </h2>
       </div>
       <div className='slider'>
-        <Slider style={{ color: "#87459E" }} />
+        <Slider
+          value={typeof value === "number" ? value : 0}
+          onChange={handleSliderChange}
+          style={{ color: "#87459E" }}
+        />
       </div>
       <div
         className='text'
