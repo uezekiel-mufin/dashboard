@@ -144,6 +144,7 @@ h5 {
 @media only screen and (max-width: 800px) {
   .main {
     margin-left: 0px;
+    margin-right: 0rem;
     display: flex;
     flex-direction: column;
   }

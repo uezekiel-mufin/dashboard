@@ -107,7 +107,7 @@ const DrawerComp = () => {
       <Drawer
         open={innerWidth.width > 800 ? bigDraw : smallDraw}
         hideBackdrop
-        transitionDuration={500}
+        transitionDuration={1000}
         ModalProps={{
           disableScrollLock: true,
         }}
