@@ -3,11 +3,10 @@ import Slider from "@mui/material/Slider";
 import "./progress.css";
 import { Button } from "@mui/material";
 const ProgressReport = () => {
-  const [progress, setProgress] = useState("");
-
   const [value, setValue] = React.useState(30);
 
   const handleSliderChange = (event, newValue) => {
+    event.preventDefault();
     setValue(newValue);
   };
   return (

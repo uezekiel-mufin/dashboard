@@ -148,11 +148,17 @@ const rows = [
 const Summary = () => {
   return (
     <>
-      <TableContainer component={Paper} sx={{ height: "110%" }}>
+      <TableContainer component={Paper}>
         <Table aria-label='simple table'>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ color: "#AEAEAE" }}>Order ID</TableCell>
+              <TableCell
+                sx={{
+                  color: "#AEAEAE",
+                }}
+              >
+                Order ID
+              </TableCell>
               <TableCell sx={{ color: "#AEAEAE" }}>name</TableCell>
               <TableCell sx={{ color: "#AEAEAE" }}>Date</TableCell>
               <TableCell sx={{ color: "#AEAEAE" }}>Status</TableCell>
@@ -164,13 +170,33 @@ const Summary = () => {
             {rows.map((row) => (
               <TableRow
                 key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                }}
               >
-                <TableCell component='th' scope='row'>
+                <TableCell
+                  component='th'
+                  scope='row'
+                  sx={{
+                    fontSize: "14px",
+                    lineHeight: "18.23px",
+                    fontWeight: 700,
+                    color: "#000000",
+                  }}
+                >
                   {row.orderID}
                 </TableCell>
                 <TableCell>{row.name}</TableCell>
-                <TableCell>{row.Date}</TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: "14px",
+                    lineHeight: "18.23px",
+                    fontWeight: 700,
+                    color: "#000000",
+                  }}
+                >
+                  {row.Date}
+                </TableCell>
                 <TableCell
                   style={{
                     fontSize: "1rem",
@@ -179,7 +205,16 @@ const Summary = () => {
                   {row.Status}
                 </TableCell>
                 <TableCell>{row.Amount}</TableCell>
-                <TableCell>{row.Agent}</TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: "14px",
+                    lineHeight: "18.23px",
+                    fontWeight: 700,
+                    color: "#000000",
+                  }}
+                >
+                  {row.Agent}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -19,21 +19,15 @@ import {
   Avatar,
   InputBase,
 } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LogoutIcon from "@mui/icons-material/Logout";
 import data from "./drawerList";
 import SearchIcon from "@mui/icons-material/Search";
 import "./drawer.css";
 import Ezzy from "../../assets/test3.jpg";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import { useTheme, useMediaQuery } from "@mui/material";
-import { width } from "@mui/system";
 
 const drawerWidth = 240;
 const DrawerComp = () => {
@@ -82,27 +76,22 @@ const DrawerComp = () => {
               <InputBase variant='filled' fullWidth placeholder='Search...' />
             </div>
             <div className='farRight'>
-              <Badge color='primary' badgeContent={5}>
+              <Badge color='secondary' badgeContent={5}>
                 <NotificationsIcon />
               </Badge>
               <Avatar src={Ezzy} alt='image' />
               <div className='toolbarRight'>
                 <h2 className='toolbarH2' sx={{ marginTop: "2rem" }}>
                   Dr Abel Edwin
+                  <ArrowDropDownIcon />
                 </h2>
-                <ArrowDropDownIcon />
-                <div className='date'>
-                  <h4>
-                    January 2022 <CalendarMonthIcon />
-                  </h4>
-                </div>
               </div>
             </div>
           </div>
         </Toolbar>
       </AppBar>
-      <Toolbar />
-      <Toolbar />
+      <Toolbar style={{ marginBottom: "38px" }} />
+      {/* <Toolbar /> */}
 
       <Drawer
         open={innerWidth.width > 800 ? bigDraw : smallDraw}
@@ -165,7 +154,7 @@ const DrawerComp = () => {
             ))}
           </List>
           <div className='logout'>
-            <IconButton>
+            <IconButton style={{ color: "#FE6F63" }}>
               <LogoutIcon />
               Logout
             </IconButton>

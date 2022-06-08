@@ -11,6 +11,10 @@
   height: 100%;
 }
 
+.progressDiv Button {
+  width: 50%;
+}
+
 @media (max-width: 900px) {
   .progressDiv {
     display: flex;

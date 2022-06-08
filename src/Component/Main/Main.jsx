@@ -11,6 +11,8 @@ import { Avatar, Divider } from "@mui/material";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import Chart from "./Chart/Chart";
 import ProductAlert from "./ProductAlert/ProductAlert";
+import { GrFormAdd } from "react-icons/gr";
+
 const Main = () => {
   return (
     <>
@@ -76,9 +78,16 @@ const Main = () => {
         </div>
         <div className='mainRight'>
           <div className='rightTop'>
-            <Avatar src='+' alt='new' sx={{ background: "#F6DFFD" }} />
+            <GrFormAdd
+              style={{
+                fontSize: "2rem",
+                background: "#F6DFFD",
+                color: "#87459E",
+                borderRadius: "50%",
+              }}
+            />
             <h2 className='stockh2'>Add New Stock</h2>
-            <HistoryEduIcon sx={{ fontSize: "3rem" }} />
+            <HistoryEduIcon sx={{ fontSize: "3rem", color: "#FFB200" }} />
           </div>
 
           <div className='rightBottom'>

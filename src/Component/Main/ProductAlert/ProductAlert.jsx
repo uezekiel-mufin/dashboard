@@ -4,7 +4,7 @@ import { IconButton } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 const ProductAlert = () => {
   return (
-    <div>
+    <div className='alert'>
       <h2>
         Product Alert
         <IconButton>

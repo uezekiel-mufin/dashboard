@@ -20,10 +20,15 @@ const Chart = () => {
   ];
   return (
     <ResponsiveContainer height={300} width='100%'>
-      <BarChart width={500} height={300} data={data}>
+      <BarChart
+        // width='50%'
+        height={300}
+        data={data}
+        style={{ margin: "0rem 4rem 0rem 0rem" }}
+      >
         <Bar dataKey='uv' fill='#87459E' barSize={8} />
         <Tooltip />
-        <CartesianGrid stroke='#ccc' />
+        {/* <CartesianGrid stroke='#ccc' /> */}
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
       </BarChart>
