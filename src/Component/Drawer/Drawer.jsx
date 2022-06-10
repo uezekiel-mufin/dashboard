@@ -28,9 +28,53 @@ import data from "./drawerList";
 import SearchIcon from "@mui/icons-material/Search";
 import "./drawer.css";
 import Ezzy from "../../assets/test3.jpg";
+import Rectangle from "../../assets/Rectangle.png";
 
 const drawerWidth = 240;
 const DrawerComp = () => {
+  // const [clicked, setClicked] = useState(true);
+
+  const handleClick = (e) => {
+    const ul = e.target.closest("ul");
+    const el = e.target.closest("li");
+    // for collecting siblings
+    let siblings = [];
+    let getSiblings = function (e) {
+      // if no parent, return no sibling
+      if (!ul) {
+        return siblings;
+      }
+      // first child of the parent node
+      let sibling = ul.firstChild;
+
+      // collecting siblings
+      while (sibling) {
+        if (sibling.nodeType === 1 && sibling !== e) {
+          siblings.push(sibling);
+        }
+        sibling = sibling.nextSibling;
+      }
+      console.log(siblings);
+      return siblings;
+    };
+    getSiblings();
+    siblings.map((sib, index) => sib.classList.remove("active"));
+    el.classList.add("active");
+    // console.log(e.target.closest("ul"));
+    // const ul = e.target.closest("ul");
+    // const el = e.target.closest("li");
+    // const children = ul.children;
+    // console.log(children);
+    // // children && children.classList.remove("active");
+    // children.classList.toggle("active");
+    // el.classList.add("active");
+
+    // const nextSiblings = el.nextSibling;
+    // const prevSiblings = el.previousSibling;
+    // nextSiblings && nextSiblings.classList.remove("active");
+    // prevSiblings && prevSiblings.classList.remove("active");
+    // el.classList.add("active");
+  };
   const [innerWidth, setInnerWidth] = useState({
     width: undefined,
   });
@@ -103,6 +147,7 @@ const DrawerComp = () => {
       >
         <div className='drawerContent'>
           <div className='drawerHead'>
+            <img src={Rectangle} alt='rec' />
             <Typography
               sx={{
                 fontSize: "1.5rem",
@@ -124,17 +169,19 @@ const DrawerComp = () => {
 
           <List>
             {data.map((item, index) => (
-              <ListItem key={index}>
+              <ListItem key={index} onClick={(e) => handleClick(e)}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,
                     justifyContent: bigDraw ? "initial" : "center",
                     px: 2.5,
                   }}
-                  onClick={() => {
+                  onClick={(e) => {
                     if (innerWidth.width > 800) setBigDraw(true);
                     if (innerWidth.width < 800) setSmallDraw(!smallDraw);
+                    // setClicked(true);
                   }}
+                  // className={clicked ? "active" : ""}
                 >
                   <ListItemIcon
                     sx={{

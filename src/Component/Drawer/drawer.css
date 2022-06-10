@@ -38,6 +38,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .drawerContent {
   display: flex;
   flex-direction: column;
@@ -65,9 +66,16 @@
   display: contents;
 }
 
+.active {
+  background: #f6edfa;
+}
+
 @media only screen and (max-width: 800px) {
   .toolbar {
     margin-left: 5px;
+  }
+  .active {
+    background: #f6edfa;
   }
 
   .date {
