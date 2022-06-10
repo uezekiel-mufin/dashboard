@@ -19,8 +19,11 @@
   .progressDiv {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 1rem 1rem;
+    gap: 1rem;
+    padding: 2rem 2.5rem;
     height: 100%;
+  }
+  .progressDiv Button {
+    width: 100%;
   }
 }

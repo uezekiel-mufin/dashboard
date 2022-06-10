@@ -37,7 +37,7 @@ const ProgressReport = () => {
         <Slider
           value={typeof value === "number" ? value : 0}
           onChange={handleSliderChange}
-          style={{ color: "#87459E" }}
+          style={{ color: "#87459E", cursor: "pointer" }}
         />
       </div>
       <div
@@ -46,7 +46,10 @@ const ProgressReport = () => {
       >
         You reached 60% of your monthly Sales Target. Weldone!
       </div>
-      <Button variant='contained' style={{ background: "#87459E" }}>
+      <Button
+        variant='contained'
+        style={{ background: "#87459E", cursor: "pointer" }}
+      >
         Download
       </Button>
     </div>

@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  padding: 0 2rem 4.3rem 2rem;
+  padding: 0 2rem 5rem 2rem;
 }
 .productBottom h3 {
   font-weight: 700;
@@ -53,7 +53,9 @@
   line-height: 20px;
   font-weight: 400;
 }
-
+.alert {
+  margin-top: 3rem;
+}
 /* .progressAlert h5 {
   display: flex;
   justify-content: space-between;
