@@ -37,6 +37,12 @@
   margin-top: 1rem;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+.drawerHead img {
+  position: absolute;
+  z-index: -1;
+  left: -12px;
 }
 
 .drawerContent {

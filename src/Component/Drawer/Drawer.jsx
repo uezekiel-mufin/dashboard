@@ -34,11 +34,12 @@ const drawerWidth = 240;
 const DrawerComp = () => {
   // const [clicked, setClicked] = useState(true);
 
+  let siblings = [];
+
   const handleClick = (e) => {
     const ul = e.target.closest("ul");
     const el = e.target.closest("li");
     // for collecting siblings
-    let siblings = [];
     let getSiblings = function (e) {
       // if no parent, return no sibling
       if (!ul) {
@@ -60,20 +61,6 @@ const DrawerComp = () => {
     getSiblings();
     siblings.map((sib, index) => sib.classList.remove("active"));
     el.classList.add("active");
-    // console.log(e.target.closest("ul"));
-    // const ul = e.target.closest("ul");
-    // const el = e.target.closest("li");
-    // const children = ul.children;
-    // console.log(children);
-    // // children && children.classList.remove("active");
-    // children.classList.toggle("active");
-    // el.classList.add("active");
-
-    // const nextSiblings = el.nextSibling;
-    // const prevSiblings = el.previousSibling;
-    // nextSiblings && nextSiblings.classList.remove("active");
-    // prevSiblings && prevSiblings.classList.remove("active");
-    // el.classList.add("active");
   };
   const [innerWidth, setInnerWidth] = useState({
     width: undefined,
@@ -91,6 +78,7 @@ const DrawerComp = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  console.log(siblings);
 
   return (
     <>
@@ -202,7 +190,7 @@ const DrawerComp = () => {
           </List>
           <div className='logout'>
             <IconButton style={{ color: "#FE6F63" }}>
-              <LogoutIcon />
+              <LogoutIcon style={{ marginRight: "2rem" }} />
               Logout
             </IconButton>
           </div>
